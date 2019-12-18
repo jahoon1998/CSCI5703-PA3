@@ -7,18 +7,18 @@ There are 100 nodes (n = 100) in the small graph and 1000 nodes (n = 1000) in th
  
 ## Implementation
 Assume the directed graph G = (V,E) has n nodes (numbered 1,2,...,n) and m edges, all nodes have positive out-degree, and M = [M<sub>ji</sub>]<sub>n×n</sub> is a 𝑛 × 𝑛 matrix as defined in class such that for any 𝑖,𝑗 within the range of 0 to n.  
-<img src="https://i.postimg.cc/BvHXPbxG/page-Rank-Equation.png" width="20%"></img>
+<img src="https://i.postimg.cc/BvHXPbxG/page-Rank-Equation.png" width="40%"></img>
 
 Here, deg(i) is the number of outgoing edges of node i in G. If there are multiple edges in the same direction between two nodes, treat them as a single edge. By the definition of PageRank, assuming 1−β to be the teleport probability, and denoting the PageRank vector by the column vector r, we have the following equation: 
-<img src="https://i.postimg.cc/fR6VbmSK/columnR.png" width="50%"></img>
+<img src="https://i.postimg.cc/fR6VbmSK/columnR.png" width="40%"></img>
 
 where 1 is the n × 1 vector with all entries equal to 1. 
 
 Based on this equation, the iterative procedure to compute PageRank works as follows: 
 1. Initialize: 
-<img src="https://i.postimg.cc/8PXFqq1x/column-Init.png" width="15%"></img>
+<img src="https://i.postimg.cc/8PXFqq1x/column-Init.png" width="10%"></img>
 2. For i from 1 to k, iterate: 
-<img src="https://i.postimg.cc/4xKKZByy/r-iteration.png" width="15%"></img>
+<img src="https://i.postimg.cc/4xKKZByy/r-iteration.png" width="25%"></img>
 
 Run the aforementioned iterative process in Spark for 40 iterations (assuming β = 0.8) and obtain the PageRank vector r. You do not have to implement the block-based algorithms mentioned in the lectures to develop the PageRank algorithm; the vanilla implementation would work. Matrix M can be large and should be processed as an RDD in your solution. 
 
